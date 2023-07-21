@@ -1,4 +1,4 @@
-import { defineType, defineField, defineArrayMember } from "sanity";
+import { defineType, defineField, defineArrayMember, validation } from "sanity";
 import { BsPerson } from "react-icons/bs";
 import { Icon } from "@iconify/react";
 
@@ -11,22 +11,32 @@ export const me = defineType({
     defineField({
       title: "Name",
       name: "name",
-      type: "string"
+      type: "string",
+      validation: r => r.required()
+    }),
+    defineField({
+      title: "What do you do",
+      name: "description",
+      type: "text",
+      validation: r => r.required()
     }),
     defineField({
       title: "Avatar",
       name: "avatar",
       type: "image",
+      validation: r => r.required()
     }),
     defineField({
       title: "Skills",
       name: "skills",
       type: "array",
+      validation: r => r.required(),
       of: [
         defineArrayMember({
           title: "Skill",
           name: "skill",
           type: "string",
+          validation: r => r.required()
         }),
       ],
     }),
@@ -43,6 +53,7 @@ export const me = defineType({
       title: "Social Medias",
       name: "social_medias",
       type: "array",
+      validation: r => r.required(),
       of: [
         defineArrayMember({
           title: "Social Media",
@@ -53,17 +64,20 @@ export const me = defineType({
               title: "Social Media Name",
               name: "name",
               type: "string",
+              validation: r => r.required()
             }),
             defineField({
               title: "Social Media Link",
               name: "link",
               type: "url",
+              validation: r => r.required()
             }),
             defineField({
               title:
                 "Social Media Icon code (Get them here: https://icon-sets.iconify.design/)",
               name: "icon",
               type: "string",
+              validation: r => r.required()
             }),
           ],
           preview: {
@@ -84,21 +98,29 @@ export const me = defineType({
       type: "array",
       of: [
         defineArrayMember({
-          title: "Years of Exprience",
-          name: "exprience_years",
-          type: "string",
-        }),
-        defineArrayMember({
-          title: "Handled Projects",
-          name: "projects_count",
-          type: "string",
-        }),
-        defineArrayMember({
-          title: "Happy Clients",
-          name: "clients_count",
-          type: "string",
+          title: "Info",
+          name: "info",
+          type: "document",
+          fields: [
+            defineField({
+              title: "Name",
+              name: "name",
+              type: "string",
+              validation: r => r.required()
+            }),
+            defineField({
+              title: "Value",
+              name: "value",
+              type: "number",
+              validation: r => r.required()
+            })
+          ]
         }),
       ],
+      validation: r => r.required().custom((info: any) => {
+        if(info.length !== 3) return 'Info size shall be 3'
+        return true
+      })
     }),
   ],
 });
