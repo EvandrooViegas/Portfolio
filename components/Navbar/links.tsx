@@ -1,9 +1,9 @@
 
 export const links = [
     { name: "Home", href: "/" },
-    { name: "Projects", href: "#projects" },
+    { name: "Arts", href: "#arts" },
     { name: "Testimonials", href: "#testimonials" },
-    { name: "Reach me", href: "#reach" },
+    { name: "Socails", href: "#socials" },  
 ]
 
 export type Link = typeof links[0]

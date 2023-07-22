@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "./links";
-type Props = {} & Link;
+import { type Link as ILink } from "./links";
+import Link from "next/link";
+type Props = {} & ILink;
 export default function NavLink(props: Props) {
   const { href, name } = props;
   return (
     <li>
-      <a href={href} className="text-base hover:underline">{name}</a>
+      <a href={href} className="md:text-base text-sm hover:underline">{name}</a>
     </li>
   );
 }

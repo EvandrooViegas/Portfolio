@@ -5,6 +5,7 @@ import NextImage from "next/image";
 import React, { useState } from "react";
 import { BiExpandAlt } from "react-icons/bi";
 import ImageDetails from "./ImageDetails";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = { image: iGallery };
 
@@ -12,6 +13,7 @@ export default function Image(props: Props) {
   const { image } = props;
   const [isOpen, setIsOpen] = useState(false);
   const toggleImageDetailsVisibility = () => setIsOpen(!isOpen);
+
   return (
     <>
       <div className="group relative flex flex-col gap-3">
@@ -39,12 +41,21 @@ export default function Image(props: Props) {
           {trimString(image.description)}
         </p>
       </div>
-      {isOpen ? (
-        <ImageDetails
-          image={image}
-          toggleImageDetailsVisibility={toggleImageDetailsVisibility}
-        />
-      ) : null}
+      <AnimatePresence>
+        {isOpen ? (
+          <motion.div
+          className="z-[10] w-0 h-0 absolute"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1] }}
+          exit={{ opacity: 0 }}
+          >
+            <ImageDetails
+              image={image}
+              toggleImageDetailsVisibility={toggleImageDetailsVisibility}
+            />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
