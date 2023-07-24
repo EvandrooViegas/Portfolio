@@ -1,6 +1,7 @@
 import { getGallery } from "@/actions/gallery";
 import Image from "@/components/Image";
 import Title from "@/components/Title";
+import wait from "@/utils/wait";
 import React from "react";
 export default async function Gallery() {
   const gallery = await getGallery();

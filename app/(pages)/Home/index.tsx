@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getMeData } from "@/actions/me";
 import CountUp from "@/components/CountUp";
+import wait from "@/utils/wait";
 
 export const revalidate = 15;
 export default async function Home() {
