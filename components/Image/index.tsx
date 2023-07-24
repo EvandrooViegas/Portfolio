@@ -25,7 +25,7 @@ export default function Image(props: Props) {
             alt="Art"
             className="object-center object-cover rounded-2xl bg-neutral-800"
           />
-          <div className="transition-all hidden group-hover:flex center absolute inset-0 bg-black/60">
+          <div className="transition-all opacity-0 group-hover:opacity-100 flex center absolute inset-0 bg-black/60">
             <button
               onClick={toggleImageDetailsVisibility}
               className="text-3xl p-10 bg-foreground rounded-full"

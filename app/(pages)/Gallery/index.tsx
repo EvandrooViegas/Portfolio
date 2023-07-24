@@ -7,9 +7,9 @@ export default async function Gallery() {
   return (
     <div className="flex flex-col gap-3" id="gallery">
       <Title title="🎨 My art" />
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-5">
         {gallery.map((image) => (
-          <Image key={image.name} image={image} />
+          <Image key={image.name} image={image}  />
         ))}
       </div>
     </div>

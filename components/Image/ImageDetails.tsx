@@ -45,7 +45,7 @@ export default function ImageDetails(props: Props) {
       ref={overlayRef}
       className="fixed z-[10] inset-0 bg-black/80 backdrop-blur flex center"
     >
-      <div className="flex flex-col center max-w-[70vw] " ref={containerRef}>
+      <div className="flex flex-col center md:max-w-[70vw] max-w-[85vw] max-h-[85vh]" ref={containerRef}>
           <div className="relative w-full h-[450px] rounded-full">
             <Image
               src={image.source}
@@ -64,7 +64,7 @@ export default function ImageDetails(props: Props) {
           </div>
           <div className="space-y-2  bg-neutral-950 p-10 border-dashed border-t-2  border-neutral-700">
             <span className="text-3xl font-bold">{image.name}</span>
-            <p className="text-sm border-dashed md:border-l-2 md:pl-4 border-neutral-700 text-neutral-200">
+            <p className="text-sm border-dashed md:border-l-2 max-h-[300px] overflow-auto pr-4 md:pl-4 border-neutral-700 text-neutral-200">
               {image.description}
             </p>
           </div>

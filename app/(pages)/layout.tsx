@@ -18,7 +18,7 @@ type Props = {
 export default function RootLayout(props: Props) {
   const { children } = props
   return (
-    <html lang="en" className="max-w-[1500px] mx-auto p-20 scroll-smooth">
+    <html lang="en" className="max-w-[1500px] mx-auto md:p-20 p-6 scroll-smooth">
       <body className={`${inter.className}`}>
         <Navbar />
         {children}
