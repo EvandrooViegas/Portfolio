@@ -13,10 +13,10 @@ export default async function Navbar() {
         fixed top-0 inset-x-0
         flex items-center md:justify-between justify-center  
         bg-background border border-t-0 border-dashed border-neutral-700 
-        px-8 py-6 
+        px-8 py-5
         "
       >
-        <span className="text-sm font-bold hidden md:inline">{me.name}</span>
+        <span className="px-4 py-3 rounded-full bg-primary text-sm font-bold  hidden md:inline">{me.name}</span>
         <NavLinks />
       </nav>
     </header>

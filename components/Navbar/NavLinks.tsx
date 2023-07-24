@@ -4,7 +4,7 @@ import NavLink from './NavLink'
 
 export default function NavLinks() {
   return (
-    <ul className='flex items-center gap-6'>
+    <ul className='flex items-center gap-1'>
         {links.map(link => <NavLink key={link.name} {...link} />)}
     </ul>
   )

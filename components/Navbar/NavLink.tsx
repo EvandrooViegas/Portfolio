@@ -6,7 +6,7 @@ export default function NavLink(props: Props) {
   const { href, name } = props;
   return (
     <li>
-      <a href={href} className="md:text-base text-sm hover:underline">{name}</a>
+      <a href={href} className="md:text-base text-sm px-4 py-3 rounded-full hover:bg-foreground">{name}</a>
     </li>
   );
 }
