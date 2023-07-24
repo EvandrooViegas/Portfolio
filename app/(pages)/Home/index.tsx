@@ -7,7 +7,7 @@ export const revalidate = 15;
 export default async function Home() {
   const me = await getMeData();
   return (
-    <div className="flex flex-col md:grid md:grid-cols-2 gap-12">
+    <section className="flex flex-col md:grid md:grid-cols-2 gap-12">
       <div className="relative h-full min-h-[600px]">
         <Image
           src={me.avatar}
@@ -25,15 +25,21 @@ export default async function Home() {
           <p className="text-zinc-400 text-bold border-l-4 border-foreground pl-3 rounded">
             {me.description}
           </p>
-          <button className="px-6 py-2 rounded-full bg-primary text-extrabold">
-            <a href="#contact">Fale Comigo! 👋</a>
+          <button className="
+          transition-all 
+          px-6 py-4 text-xl rounded-full 
+          text-extrabold
+          bg-primary hover:bg-transparent  
+          border border-transparent border-dashed  hover:border-primary
+          ">
+            <a href="#socials">Fale Comigo! 👋</a>
           </button>
         </div>
         <div className="md:grid md:grid-cols-3 flex flex-col gap-5 items-center mt-6">
           {me.infos.map((info, idx) => (
             <div
               key={idx}
-              className="w-full flex flex-col center gap-1 border border-dashed border-neutral-700 p-4 rounded"
+              className="w-full h-full flex flex-col center gap-1 border border-dashed border-neutral-700 p-4 rounded"
             >
               <CountUp
                 delay={0.5 * idx}
@@ -45,6 +51,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

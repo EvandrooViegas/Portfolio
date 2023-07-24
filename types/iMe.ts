@@ -1,5 +1,6 @@
 import iInfo from "./iInfo";
-import iSocialMedial from "./iSocialMedia";
+import iSocialMedia from "./iSocialMedia";
+import iTestimonial from "./iTestimonial";
 
 export default interface iMe {
     name:           string,
@@ -8,7 +9,8 @@ export default interface iMe {
     slogan:         string,
     skills:         string[]
     infos:          iInfo[],
-    social_medias:  iSocialMedial[]
+    social_medias:  iSocialMedia[],
+    testimonials:   iTestimonial[],
     _id:            string
     _updatedAt:     Date
     _createdAt:     Date

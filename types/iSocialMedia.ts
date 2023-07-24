@@ -1,4 +1,4 @@
-export default interface iSocialMedial {
+export default interface iSocialMedia {
     icon: string,
     link: string
     _key: string 

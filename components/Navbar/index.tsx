@@ -9,9 +9,11 @@ export default async function Navbar() {
     <header>
       <nav
         className="
+        nav-index
+        fixed top-0 inset-x-0
         flex items-center md:justify-between justify-center  
-        border border-dashed border-neutral-700 
-        mb-12 px-8 py-4 rounded-full 
+        bg-background border border-t-0 border-dashed border-neutral-700 
+        px-8 py-6 
         "
       >
         <span className="text-sm font-bold hidden md:inline">{me.name}</span>
