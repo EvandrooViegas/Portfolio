@@ -9,17 +9,20 @@ import Footer from "@/components/Footer"
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
-  title: 'Portfolio',
+export async function generateMetadata(): Promise<Metadata> {
+  const me = await getMeData()
+  return {
+    title: `${me.name}'s Portfolio`,
+    icons: [me.avatar]
+  }
 }
-
 type Props = {
   children: React.ReactNode
 }
 export default function RootLayout(props: Props) {
   const { children } = props
   return (
-    <html lang="en" className="max-w-[1500px] mx-auto md:p-20 p-6 scroll-smooth">
+    <html lang="en" className="max-w-[1500px] mx-auto md:p-24 p-8 scroll-smooth">
       <body className={`${inter.className}`}>
         <Navbar />
         {children}
