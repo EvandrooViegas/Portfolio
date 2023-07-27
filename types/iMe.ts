@@ -1,21 +1,15 @@
-import iFollowersGrowth from "./iFollowersGrowth";
 import iInfo from "./iInfo";
 import iSocialMedia from "./iSocialMedia";
 import iTestimonial from "./iTestimonial";
-import iVideo from "./iVideo";
 
 export default interface iMe {
     name:           string,
-    description:    string,
     avatar:         string,
-    video:          string;
-    skills:         string[]
+    description:    string,
     slogan:         string,
-    best_videos:    iVideo[]
-    behind_scenes:  iVideo[]
-    social_medias:  iSocialMedia[],
+    skills:         string[]
     infos:          iInfo[],
-    growth:         iFollowersGrowth[]
+    social_medias:  iSocialMedia[],
     testimonials:   iTestimonial[],
     _id:            string
     _updatedAt:     Date

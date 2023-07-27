@@ -1,14 +1,11 @@
 import Image from "next/image";
 import { getMeData } from "@/actions/me";
 import CountUp from "@/components/CountUp";
-import iMe from "@/types/iMe";
+import wait from "@/utils/wait";
 
-type Props = {
-  me: iMe | undefined | null
-}
-export default function Home(props:Props) {
-  const { me } = props
-  if(!me) return <p>No Data!</p>
+export const revalidate = 15;
+export default async function Home() {
+  const me = await getMeData();
   return (
     <section className="flex flex-col md:grid md:grid-cols-2 gap-12">
       <div className="relative h-full min-h-[600px]">
