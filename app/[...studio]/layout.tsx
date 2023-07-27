@@ -4,6 +4,9 @@ import { Metadata } from "next"
 
 export async function generateMetadata(): Promise<Metadata> {
   const me = await getMeData()
+  if(!me) return {
+    title: "Portfolio"
+  }
   return {
     title: `${me.name}'s Portfolio Studio`,
     icons: [me.avatar]

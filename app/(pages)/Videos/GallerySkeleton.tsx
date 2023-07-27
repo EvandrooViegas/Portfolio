@@ -1,6 +1,6 @@
 import { Skeleton } from "@/components/ui/skeleton";
 
-export default async function GallerySkeleton() {
+export default async function VideosSkeleton() {
   const fakeImages = Array(6).fill(1);
   return (
     <div className="flex flex-col gap-3" id="gallery">

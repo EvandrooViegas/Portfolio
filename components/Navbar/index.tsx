@@ -4,7 +4,7 @@ import { getMeData } from "@/actions/me";
 
 export default async function Navbar() {
   const me = await getMeData();
-
+  if(!me) return  null
   return (
     <header>
       <nav

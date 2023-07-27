@@ -1,25 +1,25 @@
-import { Suspense } from "react";
-import Gallery from "./Gallery";
 import Home from "./Home";
-import HomeSkeleton from "./Home/HomeSkeleton";
-import GallerySkeleton from "./Gallery/GallerySkeleton";
 import Testimonials from "./Testimonials";
-import TestimonialsSkeleton from "./Testimonials/TestimonialsSkeleton";
 import Socials from "./Socials";
+import Videos from "./Videos";
+import { getMeData } from "@/actions/me";
+
+export const revalidate = 15
 
 export default async function Page() {
+  const me = await getMeData()
+  const bestVideos = me?.best_videos
+  const behindScenesVideos = me?.behind_scenes
+  const testimonials = me?.testimonials
+  const socials = me?.social_medias
+
   return (
     <main className="flex flex-col gap-12">
-      <Suspense fallback={<HomeSkeleton />}>
-        <Home />
-      </Suspense>
-      <Suspense fallback={<GallerySkeleton />}>
-        <Gallery />
-      </Suspense>
-      <Suspense fallback={<TestimonialsSkeleton />}>
-        <Testimonials />
-      </Suspense>
-      <Socials />
+        <Home me={me} />
+        <Videos  videos={bestVideos} />
+        <Videos title="Behind The Scenes" videos={behindScenesVideos} />
+        <Testimonials testimonials={testimonials} />
+      <Socials socials={socials} />
     </main>
   );
 }
