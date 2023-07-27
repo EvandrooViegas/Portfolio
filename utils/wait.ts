@@ -5,4 +5,5 @@ export default async function wait(time:number) {
         }, time)
     })
     await promise
+    //
 }
